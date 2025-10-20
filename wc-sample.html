@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <script type="importMap">
+    {
+      "imports": {
+        "monaco-editor/": "./node_modules/monaco-editor/",
+        "monaco-editor": "./node_modules/monaco-editor/esm/vs/editor/editor.main.js",
+        "dompurify": "./node_modules/dompurify/dist/purify.es.mjs"
+      }
+    }
+    </script>
+</head>
+
+<body>
+  <a-a style="position: absolute; top: 50px; left: 50px; height: 600px; width: 600px; border: 1px solid black;"></a-a>
+</body>
+
+<script type="module">
+  import { editor } from 'monaco-editor';
+  import monacoStyle from 'monaco-editor/min/vs/editor/editor.main.css' with { type: 'css' };
+  class AA extends HTMLElement {
+    constructor() {
+      super();
+      const shadow = this.attachShadow({ mode: 'open' });
+      const div = document.createElement('div');
+      div.id = 'editor';
+      div.style.height = '100%';
+      div.style.width = '100%';
+      shadow.appendChild(div);
+      shadow.adoptedStyleSheets = [monacoStyle];
+      const myEditor = editor.create(div, {
+        value: '# Hello, Markdown!',
+        language: 'markdown'
+      });
+    }
+  }
+  customElements.define('a-a', AA);
+</script>
+
+</html>
