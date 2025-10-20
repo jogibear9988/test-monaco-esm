@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "web-dev-server --open --https",
+    "patchMonaco": "node patchMonaco"
+  },
+  "dependencies": {
+    "dompurify": "^3.3.0",
+    "monaco-editor": "^0.54.0"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.4.6"
+  }
+}

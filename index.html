@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <script type="importMap">
+    {
+      "imports": {
+        "monaco-editor/": "./node_modules/monaco-editor/",
+        "monaco-editor": "./node_modules/monaco-editor/esm/vs/editor/editor.main.js",
+        "dompurify": "./node_modules/dompurify/dist/purify.es.mjs"
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="./node_modules/monaco-editor/min/vs/editor/editor.main.css">
+</head>
+
+<body>
+    <div id="editor"
+        style="position: absolute; top: 50px; left: 50px; height: 600px; width: 600px; border: 1px solid black;"></div>
+</body>
+
+<script type="module">
+    import { editor } from 'monaco-editor';
+    const myEditor = editor.create(document.getElementById('editor'), {
+        value: '# Hello, Markdown!',
+        language: 'markdown'
+    });
+</script>
+
+</html>
