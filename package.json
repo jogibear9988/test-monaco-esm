@@ -2,13 +2,15 @@
   "type": "module",
   "scripts": {
     "start": "web-dev-server --open --https",
-    "patchMonaco": "node patchMonaco"
+    "patchMonaco": "node patchMonaco",
+    "bundle": "esbuild ./node_modules/monaco-editor/esm/vs/editor/editor.main.js --format=esm --minify --external:dompurify --platform=neutral --bundle --outfile=./node_modules/monaco-editor/esm/vs/editor/editor.main.min.js"
   },
   "dependencies": {
     "dompurify": "^3.3.0",
     "monaco-editor": "^0.54.0"
   },
   "devDependencies": {
-    "@web/dev-server": "^0.4.6"
+    "@web/dev-server": "^0.4.6",
+    "esbuild": "^0.25.11"
   }
 }
